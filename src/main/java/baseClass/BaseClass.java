@@ -15,15 +15,18 @@ public class BaseClass {
 		driver = new ChromeDriver();
 		
 		driver.get(urlBpp);
+		System.out.println("Started....launching browser");
 		driver.manage().window().maximize();
-		
+		System.out.println("Running tests......");
 		invokeTest runTest = new invokeTest();
 		runTest.invokeFlowTests();
 		
 		driver.close();
+		System.out.println("Tests Ended...");
 		}catch(Exception e) {
 			 System.out.println("An error occurred: " + e.getMessage());
 	          e.printStackTrace();
+	          
 		}
 	}
 
