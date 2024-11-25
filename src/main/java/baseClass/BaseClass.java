@@ -15,19 +15,19 @@ public class BaseClass {
 	public static void main(String[] args) {
 		
 		try {
-		if(browser == "Chrome") {
+		if(browser.equals("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();	
 		}
-		else if(browser == "FireFox") {
+		else if(browser.equals("FireFox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();	
 		}
-		else if(browser == "Edge") {
+		else if(browser.equals("Edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();	
 		}
-		else if(browser == "Safari") {
+		else if(browser.equals("Safari")) {
 			WebDriverManager.safaridriver().setup();
 			driver = new SafariDriver();	
 		}
