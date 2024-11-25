@@ -6,10 +6,6 @@ import org.openqa.selenium.WebElement;
 import baseClass.BaseClass;
 
 public class bapLogin extends BaseClass {
-	
-	public bapLogin() {
-		super();
-	}
 	public void bapLoginFlow() {
 		
 		try {
