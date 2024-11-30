@@ -11,9 +11,8 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static String browser = "Chrome";
 	protected static String urlBpp = "https://dashboard.integ.moving.tech/bap/";
-	public static void main(String[] args) {
+	public static void main(String[] args)throws InterruptedException {
 		
-		try {
 		if(browser.equals("Chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();	
@@ -42,12 +41,7 @@ public class BaseClass {
 		
 		driver.close();
 		System.out.println("Tests Ended...");
-		
-		}catch(Exception e) {
-			 System.out.println("An error occurred: " + e.getMessage());
-	          e.printStackTrace();
-	          
-		}
+		      
 	}
 
 }
