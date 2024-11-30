@@ -1,0 +1,53 @@
+package bapFlows;
+
+import org.openqa.selenium.By;
+
+import baseClass.BaseClass;
+
+public class rideSearch extends BaseClass {
+	public void rideSearchFlow() throws InterruptedException
+	{
+		System.out.println("Starting rideSearch....");
+		
+		//Taxi Booth
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]")).click();
+		//Enter mobile number
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div[2]/div[2]/input")).sendKeys("9370267592");
+		Thread.sleep(1500);
+		//Send otp Button
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/div/button[2]")).click();
+		Thread.sleep(1500);
+		//Enter otp
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div/div[2]/input")).sendKeys("7891");
+		Thread.sleep(1500);
+		//submit otp
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/button[2]")).click();
+		Thread.sleep(1500);
+		//search destination for user button 
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[4]/button")).click();
+		Thread.sleep(1500);
+		//Location dropdown
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[1]/div[1]/div/div[2]/div/div/div/button")).click();
+		Thread.sleep(1500);		
+		//santragachi railway station select from dropdown
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[1]/div[1]/div/div[2]/div/div[2]/div/div/div[3]/div/div[1]/div/div/div")).click();
+		Thread.sleep(1500);
+		//Drop location(Search destination)
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[2]/div[2]/div/input")).sendKeys("kolkata");
+		Thread.sleep(2500);
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[1]/div/div/div")).click();
+		Thread.sleep(1500);
+		//Get Fares button
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[2]/button[2]")).click();
+		Thread.sleep(5000);
+		//Select estimates
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]")).click();
+		Thread.sleep(1000);
+		//Confirm the booking popup
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div[2]/div/div[3]/div/button[2]")).click();
+		Thread.sleep(1000);
+		System.out.println("Ended rideSearch!!");
+		
+	}
+	//
+}
