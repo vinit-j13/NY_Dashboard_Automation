@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import baseClass.BaseClass;
 
-public class bapLogin extends BaseClass {
+public class BapLogin extends BaseClass {
 	public void bapLoginFlow() throws InterruptedException{
 		
 	System.out.println("Starting bap login...");
