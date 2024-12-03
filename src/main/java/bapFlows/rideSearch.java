@@ -1,6 +1,8 @@
 package bapFlows;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import baseClass.BaseClass;
 
 public class RideSearch extends BaseClass {
@@ -44,15 +46,17 @@ public class RideSearch extends BaseClass {
 		Thread.sleep(1000);
 		//Confirm the booking popup
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div[2]/div/div[3]/div/button[2]")).click();
-		Thread.sleep(3500);
+		Thread.sleep(4500);
 		System.out.println("Ended rideSearch!!");
 		
 	}
-	/*
+	
 	//Copy ride otp function
-	public String copyOtp() {
+	public String copyOtp() throws InterruptedException {
 	WebElement rideOtpElement = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div/div[1]/div[1]/div/div[2]/div[2]"));
+	Thread.sleep(2000);
 	String rideOtp = rideOtpElement.getAttribute("textContent");
 	return rideOtp;
-	}*/
+	
+	}
 }
