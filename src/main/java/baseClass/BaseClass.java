@@ -13,22 +13,38 @@ public class BaseClass {
 	public static String urlBap = "https://dashboard.integ.moving.tech/bap/";
 	public static void main(String[] args)throws InterruptedException {
 		
-		if(browser.equals("Chrome")) {
+		switch(browser) {
+		case "Chrome":
+		{
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();	
+			break;
 		}
-		else if(browser.equals("Firefox")) {
+		case "Firefox": 
+		{
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
+			break;
 		}
-		else if(browser.equals("Edge")) {
+		case "Edge":
+		{
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+			break;
 		}
-		else if(browser.equals("Safari")) {
+		case "Safari" :
+		{
 			WebDriverManager.safaridriver().setup();
-			driver = new SafariDriver();	
+			driver = new SafariDriver();
+			break;
 		}
+		default:
+		{
+			System.out.println("No Browser selected!");
+			break;
+		}
+		
+	}
 		
 		driver.get(urlBap);
 		System.out.println("Started....launching bap in browser");

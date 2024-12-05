@@ -3,6 +3,7 @@ import bapFlows.BapLogin;
 import bapFlows.RideSearch;
 import baseClass.BaseClass;
 import bppFlows.BppLogin;
+import bppFlows.EndRide;
 
 public class InvokeTest extends BaseClass {
 	public void invokeFlowTests() throws InterruptedException
@@ -14,8 +15,12 @@ public class InvokeTest extends BaseClass {
 		RideSearch search = new RideSearch();
 		search.rideSearchFlow();
 		
+		//BPP Flows
 		BppLogin bppLogin = new BppLogin();
-		bppLogin.bppLogin();
+		bppLogin.bppLoginFlow();
+		
+		EndRide endRide = new EndRide();
+		endRide.endRideFlow();
 	}
 
 }

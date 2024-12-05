@@ -8,12 +8,14 @@ import baseClass.BaseClass;
 public class RideSearch extends BaseClass {
 	public void rideSearchFlow() throws InterruptedException
 	{
+		String userPhone = "9191919191";
 		System.out.println("Starting rideSearch....");
 		
 		//Taxi Booth
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]")).click();
+		Thread.sleep(1500);
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a/div/div[2]")).click();
 		//Enter mobile number
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div[2]/div[2]/input")).sendKeys("9370267592");
+		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div[2]/div[2]/input")).sendKeys(userPhone);
 		Thread.sleep(1500);
 		//Send otp Button
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/div/button[2]")).click();
