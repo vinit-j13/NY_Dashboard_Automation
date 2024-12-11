@@ -24,7 +24,7 @@ public class EndRide extends BaseClass {
 		Thread.sleep(2000);
 		//ongoing status click
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[1]/div/div/div/form/div[2]/div/div[1]/div[2]/div[2]/div/div[2]/div/div[2]/div[2]/div/div[1]/div/div/div")).click();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		//select date
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[1]/div/div/div/form/div[2]/div/div[1]/div[5]/div[2]/div/button")).click();
 		Thread.sleep(2000);

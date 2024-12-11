@@ -6,8 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-import invokeTest.InvokeTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -54,20 +52,12 @@ public class BaseClass {
 		driver.get(urlBap);
 		System.out.println("Started....launching bap in browser");
 		driver.manage().window().maximize();
-	}
-	
-	@Test
-	public void runTest() throws InterruptedException
-	{
 		System.out.println("Running tests......");
-		InvokeTest runTest = new InvokeTest();
-		runTest.invokeFlowTests();
-		System.out.println("Tests Ended...");
 	}
-	
 	@AfterTest
 	public void tearDown() throws InterruptedException  //cleanup function
 	{
+		System.out.println("Tests Ended...");
 		if (driver != null)
 		{
 			driver.quit();
