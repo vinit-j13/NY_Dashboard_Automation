@@ -54,6 +54,7 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		System.out.println("Running tests......");
 	}
+	
 	@AfterTest
 	public void tearDown() throws InterruptedException  //cleanup function
 	{

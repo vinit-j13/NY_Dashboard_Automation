@@ -55,7 +55,7 @@ public class EndRide extends BaseClass {
 		
 		String currentDate = dateFormat.format(sysDate); // format system's date to "dd"
 		
-		WebElement dateBody = driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[1]/div/div/div/form/div[2]/div/div[1]/div[5]/div[2]/div[2]/div/div/div[1]/div/div[2]/table"));
+		WebElement dateBody = driver.findElement(By.tagName("tbody"));
 		List<WebElement> dateColumns = dateBody.findElements(By.tagName("td"));
 		
 		for(WebElement cell : dateColumns) {
@@ -68,3 +68,4 @@ public class EndRide extends BaseClass {
 	}
 
 }
+//By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div[1]/div[1]/div/div/div/form/div[2]/div/div[1]/div[5]/div[2]/div[2]/div/div/div[1]/div/div[2]/table")

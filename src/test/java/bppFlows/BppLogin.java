@@ -1,6 +1,7 @@
 package bppFlows;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.testng.annotations.Test;
 import bapFlows.RideSearch;
 import baseClass.BaseClass;
@@ -15,8 +16,12 @@ public class BppLogin extends BaseClass {
 		
 		RideSearch otp = new RideSearch();
 		String OTP = otp.copyOtp();
-		Thread.sleep(2000);
-		driver.navigate().to(urlBpp);
+		//Thread.sleep(2000);
+		
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.get(urlBpp);
+		
+		//driver.navigate().to(urlBpp);
 		System.out.println("BPP dashboard launched successfully..!");
 		Thread.sleep(3000);
 		//email
