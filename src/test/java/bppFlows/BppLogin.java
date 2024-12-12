@@ -16,13 +16,12 @@ public class BppLogin extends BaseClass {
 		
 		RideSearch otp = new RideSearch();
 		String OTP = otp.copyOtp();
-		//Thread.sleep(2000);
 		
 		driver.switchTo().newWindow(WindowType.TAB);
 		driver.get(urlBpp);
 		
-		//driver.navigate().to(urlBpp);
 		System.out.println("BPP dashboard launched successfully..!");
+		
 		Thread.sleep(3000);
 		//email
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div/div/div/div[2]/form/div[1]/div/div/div[1]/div[2]/input")).sendKeys(email);
