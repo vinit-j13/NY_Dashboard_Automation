@@ -10,3 +10,5 @@
         </classes>
 	</test>
 </suite>
+
+<!-- java org.testng.TestNG testng.xml -->
