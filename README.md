@@ -20,7 +20,7 @@ This repository contains an automated driver suite built using Selenium WebDrive
 **2. BPP Login Flow**
     Automates the login process for Backend Provider Platform (BPP) users.
 
-    Steps include credential input, verification, and ride confirmation and end.
+    Steps include credential input, verification.
 
 **3. Ride Flow**
     Simulates an end-to-end ride booking process, including:
