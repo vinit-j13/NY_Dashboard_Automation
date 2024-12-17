@@ -1,6 +1,6 @@
 # NY_Dashboard_Automation
 
-    This repository contains an automated driver suite built using Selenium WebDriver with Java. The automation covers the following core workflows:
+This repository contains an automated driver suite built using Selenium WebDriver with Java. The automation covers the following core workflows:
 
 # Features
 
@@ -16,6 +16,7 @@
   
       Validation of successful login.
 
+
 **2. BPP Login Flow**
     Automates the login process for Backend Provider Platform (BPP) users.
 
@@ -30,12 +31,14 @@
   
       Confirming ride booking.
 
+      Start and end the ride.
+
 **4. User Ride Cancellation Flow**
    Automates the ride cancellation process initiated by the user.
 
    Includes:
 
-    Accessing the active ride.
+    Accessing user the active ride.
   
     Triggering cancellation.
   
