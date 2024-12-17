@@ -1,3 +1,4 @@
+<img width="1728" alt="Screenshot 2024-12-17 at 5 24 23 PM" src="https://github.com/user-attachments/assets/bd36bf09-4a88-49af-9955-202ba8cac737" />
 # NY_Dashboard_Automation
 
 This repository contains an automated driver suite built using Selenium WebDriver with Java. The automation covers the following core workflows:
@@ -75,3 +76,6 @@ To set up and run the automated suite:
 **Contributing**
 
 Feel free to fork this repository and submit pull requests for improvements.
+
+
+**Sample web view of generated report**
