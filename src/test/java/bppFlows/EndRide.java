@@ -1,10 +1,13 @@
 package bppFlows;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import baseClass.BaseClass;
 
@@ -12,7 +15,7 @@ public class EndRide extends BaseClass {
 	
 	@Test
 	public void endRideFlow() throws InterruptedException {
-		String driverPhone = "9519519512";
+		String driverPhone = "9742519578";
 		//ride management
 		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/a/div/div[2]")).click();
 		Thread.sleep(2000);
@@ -55,11 +58,15 @@ public class EndRide extends BaseClass {
 		
 		String currentDate = dateFormat.format(sysDate); // format system's date to "dd"
 		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("tbody")));
 		WebElement dateBody = driver.findElement(By.tagName("tbody"));
+		
 		List<WebElement> dateColumns = dateBody.findElements(By.tagName("td"));
 		
 		for(WebElement cell : dateColumns) {
 			if(cell.getText().equals(currentDate)) {
+				System.out.println("Finding current date......");
 				cell.click();
 				cell.click();
 				break;

@@ -4,11 +4,20 @@
         <classes>
               <class name="baseClass.BaseClass"/>
               <class name="bapFlows.BapLogin"/>
-              <class name="bapFlows.RideSearch"/>
+			  <class name="bapFlows.RideSearch"/>
               <class name="bppFlows.BppLogin"/>
               <class name="bppFlows.EndRide"/>
         </classes>
 	</test>
+	
+	<test name="Dashboard User cancellation">
+		<classes>
+              <class name="baseClass.BaseClass"/>
+              <class name="bapFlows.BapLogin"/>
+              <class name="bapFlows.UserRideCancellation"/>
+		</classes>
+	</test>
 </suite>
 
-<!-- java org.testng.TestNG testng.xml -->
+<!-- this file is built in pom.xml-->
+<!--to run: mvn test-->

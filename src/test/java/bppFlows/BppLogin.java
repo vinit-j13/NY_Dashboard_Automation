@@ -10,7 +10,7 @@ public class BppLogin extends BaseClass {
 	@Test
 	public void bppLoginFlow() throws InterruptedException {
 		String urlBpp = "https://dashboard.integ.moving.tech/bpp/";
-		String driverPhone = "9519519512";
+		String driverPhone = "9742519578";
 		String email = "vinit.j@nammayatri.in";
 		String password = "9370267592";
 		
