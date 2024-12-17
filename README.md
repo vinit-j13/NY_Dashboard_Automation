@@ -1,10 +1,11 @@
-<img width="1728" alt="Screenshot 2024-12-17 at 5 24 23 PM" src="https://github.com/user-attachments/assets/bd36bf09-4a88-49af-9955-202ba8cac737" />
 # NY_Dashboard_Automation
 
-This repository contains an automated driver suite built using Selenium WebDriver with Java. The automation covers the following core workflows:
+    This repository contains an automated driver suite built using Selenium WebDriver with Java. The automation covers the following core workflows:
 
-**Features**
-1. BAP Login Flow
+# Features
+
+
+**1. BAP Login Flow**
   Automates the login process for Backend Aggregator Platform (BAP) users.
 
     Includes:
@@ -15,12 +16,12 @@ This repository contains an automated driver suite built using Selenium WebDrive
   
       Validation of successful login.
 
-2. BPP Login Flow
+**2. BPP Login Flow**
     Automates the login process for Backend Provider Platform (BPP) users.
 
     Steps include credential input, verification, and ride confirmation and end.
 
-3. Ride Flow
+**3. Ride Flow**
     Simulates an end-to-end ride booking process, including:
 
       Selecting pickup and drop-off locations.
@@ -29,7 +30,7 @@ This repository contains an automated driver suite built using Selenium WebDrive
   
       Confirming ride booking.
 
-4. User Ride Cancellation Flow
+**4. User Ride Cancellation Flow**
    Automates the ride cancellation process initiated by the user.
 
    Includes:
@@ -41,41 +42,49 @@ This repository contains an automated driver suite built using Selenium WebDrive
     Verifying cancellation confirmation or messages.
 
 
-**Tech Stack**
+# Tech Stack
 
-1. Programming Language: Java
+    1. Programming Language: Java
 
-2. Automation Framework: Selenium WebDriver
+    2. Automation Framework: Selenium WebDriver
 
-3. Test Framework: TestNG 
+    3. Test Framework: TestNG 
 
-4. Build Tool: Maven
+    4. Build Tool: Maven
 
-**Setup Instructions**
 
-To set up and run the automated suite:
+# Setup Instructions
 
-1. Clone the repository: git clone "repo link".
+    To set up and run the automated suite:
+
+    1. Clone the repository: git clone "repo link".
    
-2. Import the project into your IDE (e.g., IntelliJ, Eclipse).
+    2. Import the project into your IDE (e.g., IntelliJ, Eclipse).
    
-3. Install dependencies (e.g., Selenium, TestNG) via Maven.
+    3. Install dependencies (e.g., Selenium, TestNG) via Maven.
    
-4. Update configurations, such as URLs, credentials, or environment variables.
+    4. Update configurations, such as URLs, credentials, or environment variables.
 
-5. Open terminal , change your directory to your project folder and then type "mvn clean test" in terminal. 
+    5. Open terminal , change your directory to your project folder and then type "mvn clean test" in terminal. 
   
 
-**Usage**
 
-1. Run the automation suite to validate login, ride, and cancellation flows.
+# Usage
 
-2. Integrate with CI/CD tools like Jenkins for continuous testing.
+    1. Run the automation suite to validate login, ride, and cancellation flows.
 
-
-**Contributing**
-
-Feel free to fork this repository and submit pull requests for improvements.
+    2. Integrated with CI/CD tools like Jenkins for continuous testing.
 
 
-**Sample web view of generated report**
+
+# Contributing
+
+    Feel free to fork this repository and submit pull requests for improvements.
+
+
+
+# Sample web view of generated report
+
+
+<img width="1728" alt="Screenshot 2024-12-17 at 5 24 23 PM" src="https://github.com/user-attachments/assets/bd36bf09-4a88-49af-9955-202ba8cac737" />
+
