@@ -13,7 +13,8 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static String browser = "Chrome";
 	public static String urlBap = "https://dashboard.integ.moving.tech/bap/";
-	
+	public static String urlBpp = "https://dashboard.integ.moving.tech/bpp/";
+
 	@BeforeTest
 	public void setup ()throws InterruptedException {
 		
@@ -49,10 +50,7 @@ public class BaseClass {
 		}
 		
 	}	
-		driver.get(urlBap);
-		System.out.println("Started....launching bap in browser");
-		driver.manage().window().maximize();
-		System.out.println("Running tests......");
+		
 	}
 	
 	@AfterTest

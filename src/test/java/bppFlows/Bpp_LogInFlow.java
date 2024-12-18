@@ -14,11 +14,12 @@ public class Bpp_LogInFlow extends BaseClass {
 		public void bppLoginFlow() throws InterruptedException{
 			
 			driver.get(urlBpp);
-			
+			driver.manage().window().maximize();
+
 			String email = "ajay.kumar@juspay.in";
 			String password = "8340217370";
 			
-			System.out.println("Starting bap login...");
+			System.out.println("Starting bpp login...");
 			Thread.sleep(2500);
 			
 			WebElement Email = driver.findElement(By.xpath("//input[@name='email']"));
