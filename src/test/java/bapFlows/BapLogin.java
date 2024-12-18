@@ -9,10 +9,14 @@ public class BapLogin extends BaseClass {
 	@Test
 	public void bapLoginFlow() throws InterruptedException{
 		
+		
+		System.out.println("Started....launching bap in browser");
+		driver.get(urlBap);
+		driver.manage().window().maximize();
+		System.out.println("Running tests......");	
+		
 	String email = "vinit.jj@nammayatri.in";
 	String password = "9370212345";
-		
-	driver.get(urlBap);
 	
 	System.out.println("Starting bap login...");
 	Thread.sleep(2500);
