@@ -12,6 +12,8 @@ public class BapLogin extends BaseClass {
 	String email = "vinit.jj@nammayatri.in";
 	String password = "9370212345";
 		
+	driver.get(urlBap);
+	
 	System.out.println("Starting bap login...");
 	Thread.sleep(2500);
 	
@@ -21,8 +23,12 @@ public class BapLogin extends BaseClass {
 	WebElement Password = driver.findElement(By.name("password"));
 	Password.sendKeys(password);
 	
-	WebElement loginButton = driver.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div/div/div[1]/div[1]/div/div[1]/div/div/div/div[2]/form/div/div[3]/button[2]/div/div"));
+	Thread.sleep(3000);
+	
+	WebElement loginButton = driver.findElement(By.xpath("//div[@data-button-text='Submit']"));
 	loginButton.click();
+	
+	Thread.sleep(3000);
 	
 	System.out.println("Login succesfull!!");
 		}
