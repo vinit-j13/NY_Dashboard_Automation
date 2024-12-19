@@ -2,62 +2,116 @@ package bapFlows;
 
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-
 import baseClass.BaseClass;
 
 public class BapRideCancellation extends BaseClass {
-	
-	@Test
-	public void userRideCancellation() throws InterruptedException{
-		
-		String userPhone = "9191919191";
-		System.out.println("Starting user ride cancellation....");
-		
-		//Taxi Booth
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/a/div/div[2]")).click();
-		//Enter mobile number
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div[2]/div[2]/input")).sendKeys(userPhone);
-		Thread.sleep(2000);
-		//Send otp Button
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/div/button[2]")).click();
-		Thread.sleep(2500);
-		//Enter otp
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div/div/div[2]/input")).sendKeys("7891");
-		Thread.sleep(2000);
-		//submit otp
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/button[2]")).click();
-		Thread.sleep(2000);
-		//search destination for user button 
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[4]/button")).click();
-		Thread.sleep(2000);
-		//Location dropdown
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[1]/div[1]/div/div[2]/div/div/div/button")).click();
-		Thread.sleep(2000);		
-		//santragachi railway station select from dropdown
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[1]/div[1]/div/div[2]/div/div[2]/div/div/div[3]/div/div[1]/div/div/div")).click();
-		Thread.sleep(2000);
-		//Drop location(Search destination)
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[2]/div[2]/div/input")).sendKeys("kolkata");
-		Thread.sleep(3500);
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[1]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[1]/div/div/div")).click();
-		Thread.sleep(3000);
-		//Get Fares button
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div/div/div[2]/div/form/div[2]/button[2]")).click();
-		Thread.sleep(5000);
-		//Select estimates
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[3]/div[1]")).click();
-		Thread.sleep(2000);
-		//Confirm the booking popup
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div[2]/div/div[3]/div/button[2]")).click();
-		Thread.sleep(2000);
-		//Cancel booking
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div[1]/div[1]/div/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/div/button")).click();
-		Thread.sleep(2000);
-		//Cancel booking popup
-		driver.findElement(By.xpath("/html/body/div/div/div/div/div/div[2]/div/div[3]/div/button[2]")).click();
-		Thread.sleep(3000);
-		System.out.println("Ride cancellation successful.!");
-	}
 
+    @Test
+    public void userRideCancellation() throws InterruptedException {
+        String userPhone = "9191919191";
+        System.out.println("Starting user ride cancellation....");
+
+        // Perform the steps up to the "Confirm the booking popup"
+        goToTaxiBooth();
+        enterPhoneNumber(userPhone);
+        sendOtp();
+        enterOtp("7891");
+        submitOtp();
+        searchDestinationForUser();
+        selectLocation();
+        enterDropLocation("kolkata");
+        getFares();
+        selectEstimate();
+
+        // Confirm the booking popup
+        confirmBooking();
+        Thread.sleep(2000);
+
+        // Proceed with cancellation
+        cancelBooking();
+        cancelBookingPopup();
+
+        System.out.println("Ride cancellation successful.!");
+    }
+
+    // Method to go to the Taxi Booth
+    public void goToTaxiBooth() throws InterruptedException {
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@data-sidebar-option='Taxi Booth']")).click();
+    }
+
+    // Method to enter phone number
+    public void enterPhoneNumber(String phoneNumber) throws InterruptedException {
+        driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(phoneNumber);
+        Thread.sleep(2000);
+    }
+
+    // Method to send OTP
+    public void sendOtp() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@data-button-for='sendOTP']")).click();
+        Thread.sleep(2500);
+    }
+
+    // Method to enter OTP
+    public void enterOtp(String otp) throws InterruptedException {
+        driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(otp);
+        Thread.sleep(2000);
+    }
+
+    // Method to submit OTP
+    public void submitOtp() throws InterruptedException {
+        driver.findElement(By.xpath("//div[@data-button-text='Submit OTP']")).click();
+        Thread.sleep(2000);
+    }
+
+    // Method to search for destination for user
+    public void searchDestinationForUser() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@aria-label='searchDestinationForUser']")).click();
+        Thread.sleep(2000);
+    }
+
+    // Method to select location
+    public void selectLocation() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@data-text='Santragachi']")).click();
+        Thread.sleep(2000);
+    }
+
+    // Method to enter drop location
+    public void enterDropLocation(String location) throws InterruptedException {
+        driver.findElement(By.xpath("//input[@placeholder='Search Destinations']")).sendKeys(location);
+        Thread.sleep(3500);
+        driver.findElement(By.xpath("//div[@data-text='Kolkata, West Bengal, India']")).click();
+        Thread.sleep(3000);
+    }
+
+    // Method to click on Get Fares
+    public void getFares() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@data-button-for='getFares']")).click();
+        Thread.sleep(5000);
+    }
+
+    // Method to select estimate
+    public void selectEstimate() throws InterruptedException {
+        driver.findElement(By.xpath("//div[@class='font-bold text-fs-20']/../div[3]/div[1]")).click();
+        Thread.sleep(2000);
+    }
+
+    // Method to confirm the booking
+    public void confirmBooking() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@aria-label='yes,BookIt']")).click();
+    }
+
+    // Method to cancel the booking
+    public void cancelBooking() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@aria-label='cancelBooking']")).click();
+        Thread.sleep(2000);
+    }
+
+    // Method to confirm cancellation
+    public void cancelBookingPopup() throws InterruptedException {
+        driver.findElement(By.xpath("//button[@aria-label='yes,CancelIt']")).click();
+        Thread.sleep(3000);
+    }
 }
