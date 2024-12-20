@@ -1,58 +1,66 @@
 package bapFlows;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
+import utils.BapHelper;
 
 public class BapRideSearch extends BaseClass {
-	
+
 	public static String OTP = "";
-	
+
 	@Test
-	public void rideSearchFlow() throws InterruptedException
-	{
-		String userPhone = "9191919191";
+	public void rideSearchFlow() throws InterruptedException {
+		BapHelper bapHelper = new BapHelper();
+
 		System.out.println("Starting rideSearch....");
+
+		bapHelper.goToTaxiBooth();
+
+		bapHelper.enterPhoneNumber(userPhone);
+
+		bapHelper.sendOtp();
+
+		bapHelper.enterOtp(userOtp);
+
+		bapHelper.submitOtp();
+
+		bapHelper.searchDestinationForUser();
+
+		bapHelper.selectLocation();
+
+		bapHelper.enterDropLocation("kolkata");
+
+		bapHelper.getFares();
+
+		bapHelper.selectEstimate();
+
+		bapHelper.confirmBooking();
 		
-        BapRideCancellation ridebook = new BapRideCancellation();
-        
-        ridebook.goToTaxiBooth();
-        
-        ridebook.enterPhoneNumber(userPhone);
-        
-        ridebook.sendOtp();
-
-        ridebook.enterOtp("7891");
-        
-        ridebook.submitOtp();
-
-        ridebook.searchDestinationForUser();
-
-        ridebook.selectLocation();
-        
-        ridebook.enterDropLocation("kolkata");
-        
-        ridebook.getFares();
-
-        ridebook.selectEstimate();
-
-        ridebook.confirmBooking();
-
-		
-		Thread.sleep(4500);
 		BapRideSearch.OTP = copyOtp();
-		System.out.println("Ended rideSearch!!");
 		
+		System.out.println("Ended rideSearch!!");
+
 	}
+
 	@Test
-	//Copy ride otp function
+	// Copy ride otp function
 	public String copyOtp() throws InterruptedException {
-	WebElement rideOtpElement = driver.findElement(By.xpath("//div[@class='font-bold text-fs-20 not-italic dark:text-white']"));
-	Thread.sleep(2000);
-	String rideOtp = rideOtpElement.getAttribute("textContent");
-	return rideOtp;
-	
+		
+		WebDriverWait wait = new WebDriverWait(driver , Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='font-bold text-fs-20 not-italic dark:text-white']")));
+		
+		WebElement rideOtpElement = driver.findElement(By.xpath("//div[@class='font-bold text-fs-20 not-italic dark:text-white']"));
+		
+		String rideOtp = rideOtpElement.getAttribute("textContent");
+		
+		return rideOtp;
+
 	}
 }
