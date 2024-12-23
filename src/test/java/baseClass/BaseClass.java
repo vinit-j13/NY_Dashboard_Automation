@@ -14,6 +14,7 @@ public class BaseClass {
 	public static String browser = "Chrome";
 	public static String urlBap = "https://dashboard.integ.moving.tech/bap/";
 	public static String urlBpp = "https://dashboard.integ.moving.tech/bpp/";
+	public static String urlfleat = "https://dashboard.integ.moving.tech/fleetDashboard/drivers";
 	public static String userPhone = "9191919191";
 	public static String driverPhone = "9742519578";
 	public static String userOtp = "7891";
