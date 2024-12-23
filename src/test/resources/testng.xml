@@ -12,13 +12,13 @@
 	</test>
 
 
-	<!--<test name="Dashboard User cancellation">
+	<test name="Dashboard User cancellation">
 		<classes>
               <class name="baseClass.BaseClass"/>
               <class name="bapFlows.BapLogin"/>
               <class name="bapFlows.BapRideCancellation"/>
 		</classes>
-	</test>-->
+	</test>
 </suite>
 
 <!-- this file is built in pom.xml-->
