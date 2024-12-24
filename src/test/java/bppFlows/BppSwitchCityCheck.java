@@ -1,5 +1,6 @@
 package bppFlows;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
@@ -14,7 +15,7 @@ import baseClass.BaseClass;
 public class BppSwitchCityCheck extends BaseClass {
 
     @Test
-    public void BppSwitchCity() throws InterruptedException {
+    public void BppSwitchCity() throws InterruptedException, IOException {
         BppLogin BppsideLogin = new BppLogin();
         BppsideLogin.bppLoginFlow();
 

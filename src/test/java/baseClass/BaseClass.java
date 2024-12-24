@@ -1,5 +1,8 @@
 package baseClass;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -9,25 +12,22 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+
 public class BaseClass {
 	public static WebDriver driver;
-	public static String browser = "Chrome";
-	public static String urlBap = "https://dashboard.integ.moving.tech/bap/";
-	public static String urlBpp = "https://dashboard.integ.moving.tech/bpp/";
 	public static String urlfleat = "https://dashboard.integ.moving.tech/fleetDashboard/drivers";
-	public static String userPhone = "9191919191";
-	public static String driverPhone = "9742519578";
-	public static String userOtp = "7891";
-	public static String bapEmail = "vinit.jj@nammayatri.in";
-	public static String bapPassword = "9370212345";
-	public static String bppEmail = "vinit.j@nammayatri.in";
-	public static String bppPassword = "9370267592";
-
-
+	
 	@BeforeTest
-	public void setup() throws InterruptedException {
+	public void setup() throws InterruptedException, IOException {
+		
+		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		
+		Properties properties = new Properties();
+		
+		properties.load(fr);
 
-		switch (browser) {
+		switch (properties.getProperty("browser")) {
+		
 		case "Chrome": {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();

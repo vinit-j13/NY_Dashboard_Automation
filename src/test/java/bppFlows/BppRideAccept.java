@@ -1,6 +1,9 @@
 package bppFlows;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,16 +13,21 @@ import org.testng.annotations.Test;
 import baseClass.BaseClass;
 import utils.BppHelper;
 
+
 public class BppRideAccept extends BaseClass {
 
 	@Test
-	public void bppRideAccept() throws InterruptedException {
+	public void bppRideAccept() throws InterruptedException, IOException {
+		
+		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		
+		Properties properties = new Properties();
+		
+		properties.load(fr);
 
 		BppHelper bppHelper = new BppHelper();
 
-		String driverPhone = "9742519578";
-
-		bppHelper.searchDriverBynumber(driverPhone);
+		bppHelper.searchDriverBynumber(properties.getProperty("driverPhone"));
 
 		
 		String vehicleNumber = copyVehicleNumber(); // Copy vehicle number
@@ -30,7 +38,7 @@ public class BppRideAccept extends BaseClass {
 
 		bppHelper.searchVehicleButtonClick();
 
-		bppHelper.startRideScreen(driverPhone, vehicleNumber);
+		bppHelper.startRideScreen(properties.getProperty("driverPhone"), vehicleNumber);
 
 	}
 

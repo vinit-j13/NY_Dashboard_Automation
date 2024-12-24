@@ -1,9 +1,13 @@
 package bppFlows;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,18 +17,23 @@ import org.testng.annotations.Test;
 import baseClass.BaseClass;
 import utils.BppHelper;
 
+
 public class BppEndRide extends BaseClass {
 
 	@Test
-	public void endRideFlow() throws InterruptedException {
+	public void endRideFlow() throws InterruptedException, IOException {
+		
+		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		
+		Properties properties = new Properties();
+		
+		properties.load(fr);
 
 		BppHelper bppHelper = new BppHelper();
 
-		
-
 		bppHelper.goToRideManagement();
 
-		bppHelper.enterDriverInRidemanagement(driverPhone);
+		bppHelper.enterDriverInRidemanagement(properties.getProperty("driverPhone"));
 
 		bppHelper.rideStatus();
 
