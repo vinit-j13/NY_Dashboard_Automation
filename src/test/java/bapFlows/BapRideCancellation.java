@@ -1,5 +1,7 @@
 package bapFlows;
 
+import java.io.IOException;
+
 import org.testng.annotations.Test;
 import baseClass.BaseClass;
 import utils.BapHelper;
@@ -7,7 +9,7 @@ import utils.BapHelper;
 public class BapRideCancellation extends BaseClass {
 
 	@Test
-	public void userRideCancellation() throws InterruptedException {
+	public void userRideCancellation() throws InterruptedException, IOException {
 
 		BapHelper bapHelper = new BapHelper();
 		

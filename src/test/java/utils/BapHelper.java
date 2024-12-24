@@ -12,7 +12,7 @@ import baseClass.BaseClass;
 public class BapHelper extends BaseClass {
 
 		
-	public void bapLoginEmailPass() throws InterruptedException {
+	public void bapLoginEmailPass(String bapEmail , String bapPassword) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait (driver,Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.name("email")));
 

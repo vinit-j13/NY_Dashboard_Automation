@@ -15,7 +15,7 @@ public class BppHelper extends BaseClass {
 	// package-bpp helper methods starts from here. Please write all BPP methods
 	// here.
 	
-	public void bppLoginEmailPass() throws InterruptedException {
+	public void bppLoginEmailPass(String bppEmail , String bppPassword ) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait (driver,Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='email']")));
 		
