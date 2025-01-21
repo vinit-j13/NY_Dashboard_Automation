@@ -1,5 +1,6 @@
 package fleatflows;
 
+import java.io.IOException;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 public class FleetAddDriver extends FleetLogin {
 
     @Test
-    public void automateAddDriver() {
+    public void automateAddDriver() throws IOException {
         // Step 1: Login
         System.out.println("Initiating login process...");
         bapLoginFlow();
@@ -30,6 +31,7 @@ public class FleetAddDriver extends FleetLogin {
             addDriverButton.click();
             System.out.println("Clicked on Add Driver.");
 
+            
             // Step 4: Enter Mobile Number
             WebElement mobileNumberField = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//*[@id=\"neglectTopbarTheme\"]/div[2]/div/div[1]/div[2]/input"))); // Replace with actual XPath

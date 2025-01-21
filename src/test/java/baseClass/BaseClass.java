@@ -15,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 	public static WebDriver driver;
-	public static String urlfleat = "https://dashboard.integ.moving.tech/fleetDashboard/drivers";
+	
 	
 	@BeforeTest
 	public void setup() throws InterruptedException, IOException {
