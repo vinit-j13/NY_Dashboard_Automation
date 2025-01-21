@@ -7,19 +7,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import baseClass.BaseClass;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class FleetLogin extends BaseClass {
 
     @Test
-    public void bapLoginFlow() {
+    public void FleetLoginFlow() throws IOException {
         // Test data
+    	FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		Properties properties = new Properties();
+		properties.load(fr);
         String mobileNumber = "6378299817";
         String cityName = "NAMMA YATRI PARTNER:Bangalore";
         
 
+        
+        
         // Open the URL and maximize the window
-        driver.get(urlfleat);
+        driver.get(properties.getProperty("urlfleet"));
         driver.manage().window().maximize();
 
         System.out.println("Starting Fleat login flow...");

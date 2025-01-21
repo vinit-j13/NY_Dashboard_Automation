@@ -1,5 +1,9 @@
 package fleatflows;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -8,13 +12,13 @@ import baseClass.BaseClass;
 public class FleetSignUp extends BaseClass {
 
     @Test
-    public void bapLoginFlow() throws InterruptedException {
-
+    public void FleetSighnUpFlow() throws InterruptedException, IOException {
+    	FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		Properties properties = new Properties();
+		properties.load(fr);
         String mobileNumber = "8888888881";
         String cityName = "NAMMA YATRI PARTNER:Bangalore";
-
-        // Launch URL
-        driver.get(urlfleat);
+        driver.get(properties.getProperty("urlfleet"));
         driver.manage().window().maximize();
 
         System.out.println("Starting Fleat login flow...");
