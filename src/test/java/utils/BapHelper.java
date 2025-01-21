@@ -24,7 +24,7 @@ public class BapHelper extends BaseClass {
 
 		Thread.sleep(3000);
 
-		WebElement loginButton = driver.findElement(By.xpath("//div[@data-button-text='Submit']"));
+		WebElement loginButton = driver.findElement(By.xpath("//div[@data-button-text='Login']"));
 		loginButton.click();
 	}
 	
@@ -65,10 +65,45 @@ public class BapHelper extends BaseClass {
 	}
 
 	// Method to select location BAP
-	public void selectLocation() throws InterruptedException {
+	public void selectLocationSantargachi() throws InterruptedException {
 		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@data-text='Santragachi']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void selectLocationHowrahStation() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@data-text='Howrah station']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void selectLocationSealdahStation() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@data-text='Sealdah station']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void selectLocationKolkataStation() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@data-text='Kolkata station']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void selectLocationKolkataAirport() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@data-text='Kolkata Airport']")).click();
+		Thread.sleep(2000);
+	}
+	
+	public void selectLocationGangasagarMela() throws InterruptedException {
+		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@data-text='Gangasagar Mela']")).click();
 		Thread.sleep(2000);
 	}
 
@@ -97,6 +132,9 @@ public class BapHelper extends BaseClass {
 	// Method to confirm the booking BAP
 	public void confirmBooking() throws InterruptedException {
 		driver.findElement(By.xpath("//button[@aria-label='yes,BookIt']")).click();
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@aria-label='cancelBooking']")));
+ 
 	}
 
 	// Method to cancel the booking BAP

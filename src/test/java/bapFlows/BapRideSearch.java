@@ -72,7 +72,7 @@ public class BapRideSearch extends BaseClass {
 
 				Thread.sleep(2000);
 
-				bapHelper.selectLocation();
+				bapHelper.selectLocationSantargachi();
 
 				bapHelper.enterDropLocation("kolkata");
 
@@ -87,7 +87,7 @@ public class BapRideSearch extends BaseClass {
 
 				bapHelper.searchDestinationForUser();
 
-				bapHelper.selectLocation();
+				bapHelper.selectLocationSantargachi();
 
 				bapHelper.enterDropLocation("kolkata");
 

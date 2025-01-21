@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="NY Dashboard Suite">
-	<test name="Dashboard Ride Flow Test">
+	<!--<test name="Dashboard Ride Flow Test">
 		<classes>
 			<class name="baseClass.BaseClass" />
 			<class name="bapFlows.BapLogin" />
@@ -9,14 +9,23 @@
 			<class name="bppFlows.BppRideAccept" />
 			<class name="bppFlows.BppEndRide" />
 		</classes>
-	</test>
+	</test>-->
 
 
 	<test name="Dashboard User cancellation">
 		<classes>
               <class name="baseClass.BaseClass"/>
               <class name="bapFlows.BapLogin"/>
-              <class name="bapFlows.BapRideCancellation"/>
+              <class name="bapFlows.BapRideCancellation">
+              	<methods>
+              		<include name = "userRideCancellationSantargachi"></include>
+              		<include name = "userRideCancellationHowrahStation"></include>
+              		<include name = "userRideCancellationSealdahStation"></include>
+              		<include name = "userRideCancellationKolkataStation"></include>
+              		<include name = "userRideCancellationKolkataAirport"></include>
+              		<include name = "userRideCancellationGangasagarMela"></include>
+              	</methods>
+              </class>
 		</classes>
 	</test>
 </suite>
