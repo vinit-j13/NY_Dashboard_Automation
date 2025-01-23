@@ -8,13 +8,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class FleetAddDriver extends FleetLogin {
+import baseClass.BaseClass;
+
+public class FleetAddDriver extends BaseClass {
 
     @Test
     public void automateAddDriver() throws IOException {
         // Step 1: Login
         System.out.println("Initiating login process...");
-        bapLoginFlow();
+        FleetLogin obj = new FleetLogin();
+    	obj.FleetLoginFlow();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
