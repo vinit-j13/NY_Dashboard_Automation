@@ -1,5 +1,6 @@
 package fleatflows;
 
+import java.io.IOException;
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,13 +9,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class FleetEditProfile extends FleetLogin {
+import baseClass.BaseClass;
+
+public class FleetEditProfile extends BaseClass {
 
     @Test
-    public void automateDashboardFeatures() {
+    public void automateDashboardFeatures() throws IOException {
         // Step 1: Login
         System.out.println("Initiating login process...");
-        bapLoginFlow();
+        FleetLogin obj = new FleetLogin();
+    	obj.FleetLoginFlow();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
