@@ -1,9 +1,7 @@
 package bapFlows;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -20,23 +18,17 @@ public class BapRideSearch extends BaseClass {
 	@Test
 	public void rideSearchFlow() throws InterruptedException, IOException {
 		
-		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
-		
-		Properties properties = new Properties();
-		
-		properties.load(fr);
-
 		BapHelper bapHelper = new BapHelper();
 
 		System.out.println("Starting rideSearch....");
 
 		bapHelper.goToTaxiBooth();
 
-		bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+		bapHelper.enterPhoneNumber();
 
 		bapHelper.sendOtp();
 
-		bapHelper.enterOtp(properties.getProperty("userOtp"));
+		bapHelper.enterOtp();
 
 		bapHelper.submitOtp();
 		

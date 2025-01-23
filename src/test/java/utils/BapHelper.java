@@ -1,6 +1,9 @@
 package utils;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -10,17 +13,30 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import baseClass.BaseClass;
 
 public class BapHelper extends BaseClass {
-
+	
+	final Properties properties;
+	
+	public BapHelper() throws IOException {
 		
-	public void bapLoginEmailPass(String bapEmail , String bapPassword) throws InterruptedException {
+		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		properties = new Properties();
+		properties.load(fr);
+
+	}
+		
+	public void bapLoginEmailPass() throws InterruptedException {
+		
+		driver.get(properties.getProperty("urlBap"));
+		driver.manage().window().maximize();
+		
 		WebDriverWait wait = new WebDriverWait (driver,Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.name("email")));
 
 		WebElement Email = driver.findElement(By.name("email"));
-		Email.sendKeys(bapEmail);
+		Email.sendKeys(properties.getProperty("bapEmail"));
 		
 		WebElement Password = driver.findElement(By.name("password"));
-		Password.sendKeys(bapPassword);
+		Password.sendKeys(properties.getProperty("bapPassword"));
 
 		Thread.sleep(3000);
 
@@ -35,8 +51,8 @@ public class BapHelper extends BaseClass {
 	}
 
 	// Method to enter phone number BAP
-	public void enterPhoneNumber(String phoneNumber) throws InterruptedException {
-		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(phoneNumber);
+	public void enterPhoneNumber() throws InterruptedException {
+		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(properties.getProperty("userPhone"));
 		Thread.sleep(2000);
 	}
 
@@ -47,8 +63,8 @@ public class BapHelper extends BaseClass {
 	}
 
 	// Method to enter OTP BAP
-	public void enterOtp(String otp) throws InterruptedException {
-		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(otp);
+	public void enterOtp() throws InterruptedException {
+		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(properties.getProperty("userOtp"));
 		Thread.sleep(2000);
 	}
 
