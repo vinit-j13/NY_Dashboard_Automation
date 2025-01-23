@@ -17,12 +17,6 @@ public class BapRideCancellation extends BaseClass {
 
 	@Test
 	public void userRideCancellationSantargachi() throws InterruptedException, IOException {
-		
-        FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
-		
-		Properties properties = new Properties();
-		
-		properties.load(fr);
 
 		BapHelper bapHelper = new BapHelper();
 
@@ -30,11 +24,11 @@ public class BapRideCancellation extends BaseClass {
 
 		bapHelper.goToTaxiBooth();
 
-		bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+		bapHelper.enterPhoneNumber();
 
 		bapHelper.sendOtp();
 
-		bapHelper.enterOtp(properties.getProperty("userOtp"));
+		bapHelper.enterOtp();
 
 		bapHelper.submitOtp();
 		
@@ -128,11 +122,11 @@ public class BapRideCancellation extends BaseClass {
 
 			bapHelper.goToTaxiBooth();
 
-			bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+			bapHelper.enterPhoneNumber();
 
 			bapHelper.sendOtp();
 
-			bapHelper.enterOtp(properties.getProperty("userOtp"));
+			bapHelper.enterOtp();
 
 			bapHelper.submitOtp();
 			
@@ -228,11 +222,11 @@ public class BapRideCancellation extends BaseClass {
 
 			bapHelper.goToTaxiBooth();
 
-			bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+			bapHelper.enterPhoneNumber();
 
 			bapHelper.sendOtp();
 
-			bapHelper.enterOtp(properties.getProperty("userOtp"));
+			bapHelper.enterOtp();
 
 			bapHelper.submitOtp();
 			
@@ -329,11 +323,11 @@ public class BapRideCancellation extends BaseClass {
 
 			bapHelper.goToTaxiBooth();
 
-			bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+			bapHelper.enterPhoneNumber();
 
 			bapHelper.sendOtp();
 
-			bapHelper.enterOtp(properties.getProperty("userOtp"));
+			bapHelper.enterOtp();
 
 			bapHelper.submitOtp();
 			
@@ -426,11 +420,11 @@ public class BapRideCancellation extends BaseClass {
 
 			bapHelper.goToTaxiBooth();
 
-			bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+			bapHelper.enterPhoneNumber();
 
 			bapHelper.sendOtp();
 
-			bapHelper.enterOtp(properties.getProperty("userOtp"));
+			bapHelper.enterOtp();
 
 			bapHelper.submitOtp();
 			
@@ -526,11 +520,11 @@ public class BapRideCancellation extends BaseClass {
 
 			bapHelper.goToTaxiBooth();
 
-			bapHelper.enterPhoneNumber(properties.getProperty("userPhone"));
+			bapHelper.enterPhoneNumber();
 
 			bapHelper.sendOtp();
 
-			bapHelper.enterOtp(properties.getProperty("userOtp"));
+			bapHelper.enterOtp();
 
 			bapHelper.submitOtp();
 			

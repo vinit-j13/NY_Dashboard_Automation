@@ -1,9 +1,13 @@
 package utils;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,21 +15,35 @@ import bapFlows.BapRideSearch;
 import baseClass.BaseClass;
 
 public class BppHelper extends BaseClass {
+	
+	final Properties properties;
 
 	// package-bpp helper methods starts from here. Please write all BPP methods
 	// here.
+	public BppHelper() throws IOException {
+		FileReader fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/config file/config.properties");
+		
+		properties = new Properties();
+		
+		properties.load(fr);
+	}
 	
-	public void bppLoginEmailPass(String bppEmail , String bppPassword ) throws InterruptedException {
+	public void bppLoginEmailPass() throws InterruptedException {
+		
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.get(properties.getProperty("urlBpp"));
+		driver.manage().window().maximize();
+		
 		WebDriverWait wait = new WebDriverWait (driver,Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='email']")));
 		
 		WebElement Email = driver.findElement(By.xpath("//input[@name='email']"));
-		Email.sendKeys(bppEmail);
+		Email.sendKeys(properties.getProperty("bppEmail"));
 
 		Thread.sleep(3000);
 
 		WebElement Password = driver.findElement(By.xpath("//input[@name='password']"));
-		Password.sendKeys(bppPassword);
+		Password.sendKeys(properties.getProperty("bppPassword"));
 
 		Thread.sleep(3000);
 
@@ -35,8 +53,8 @@ public class BppHelper extends BaseClass {
 	}
 
 	// Method to search driver with help of phone number
-	public void searchDriverBynumber(String phone) throws InterruptedException {
-		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(phone);
+	public void searchDriverBynumber() throws InterruptedException {
+		driver.findElement(By.xpath("//input[@inputmode='text']")).sendKeys(properties.getProperty("driverPhone"));
 		Thread.sleep(2000);
 		// Search button
 		driver.findElement(By.xpath("//button[@data-button-for='search']")).click();
@@ -67,12 +85,12 @@ public class BppHelper extends BaseClass {
 	}
 
 	// Method for starting ride
-	public void startRideScreen(String driverPhone, String vehicleNumber) throws InterruptedException {
+	public void startRideScreen(String vehicleNumber) throws InterruptedException {
 		// Enter vehicle number
 		driver.findElement(By.xpath("//input[@name='vehicleNumber']")).sendKeys(vehicleNumber);
 		Thread.sleep(2000);
 		// Enter driver phone number
-		driver.findElement(By.xpath("//input[@name='phoneNumber']")).sendKeys(driverPhone);
+		driver.findElement(By.xpath("//input[@name='phoneNumber']")).sendKeys(properties.getProperty("driverPhone"));
 		Thread.sleep(2000);
 		// Location drop down
 		driver.findElement(By.xpath("//button[@aria-label='location']")).click();
@@ -93,9 +111,9 @@ public class BppHelper extends BaseClass {
 	}
 
 	// Method for entering driver number in ride management section
-	public void enterDriverInRidemanagement(String driverPhone) throws InterruptedException {
+	public void enterDriverInRidemanagement() throws InterruptedException {
 		// search by driver name
-		driver.findElement(By.xpath("//input[@placeholder='Search By Driver Number']")).sendKeys(driverPhone);
+		driver.findElement(By.xpath("//input[@placeholder='Search By Driver Number']")).sendKeys(properties.getProperty("driverPhone"));
 		Thread.sleep(3000);
 	}
 
