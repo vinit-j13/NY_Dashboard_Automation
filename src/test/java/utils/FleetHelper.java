@@ -240,6 +240,7 @@ public class FleetHelper extends BaseClass {
                  By.xpath("//div['@class=text-lg dark:text-blue-800']/descendant::div[27]")));
          vehicleTab.click();
          System.out.println("Vehicle tab clicked.");
+         
          // Step 2: Wait for the row containing the "VALID" text to be visible
          WebElement validRow = wait.until(ExpectedConditions.visibilityOfElementLocated(
                  By.xpath("//div[@data-desc='VALID']")));
@@ -249,14 +250,16 @@ public class FleetHelper extends BaseClass {
          Actions actions = new Actions(driver);
          actions.moveToElement(validRow).perform(); // Hover over the row
          System.out.println("Hovered over the row to reveal the options menu.");
+         
          // Step 4: Wait for the options menu (three dots) to be clickable
          WebElement optionsMenu = wait.until(ExpectedConditions.elementToBeClickable(
                  By.xpath("(//div[@data-icon='more-verticle' and contains(@class, 'flex')])[1]"))); // XPath for the 3-dot icon
          optionsMenu.click();
          System.out.println("Clicked on the options menu.");
+         
          // Step 5: Click on the Edit option
          WebElement editOption = wait.until(ExpectedConditions.elementToBeClickable(
-                 By.xpath("//div[@class='flex flex-row gap-6 hover:bg-[#F7F7FA] px-4 pt-4 pb-2 cursor-pointer rounded-md m-1']//div[@data-icon='edit-3']//following-sibling::div[contains(text(), 'Edit')][1]")));
+                 By.xpath("//div[@class=\"cursor-pointer \"and text()= \"Edit\"]")));
          editOption.click();
          System.out.println("Clicked on Edit.");
          
@@ -332,7 +335,84 @@ public class FleetHelper extends BaseClass {
 //         System.out.println("Vehicle details updated successfully: " + successMessage.getText());
 
     	
-    }}
+    }
+    
+    
+
+    // Method to enter OTP
+   
+    public void AddDriverinFleet() {
+    	
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            // Step 2: Click on Driver
+            WebElement driverButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()=\"Drivers\"]")));
+            driverButton.click();
+            System.out.println(" 1. Clicked on Driver.");
+            
+            // Step 3: Click on Add Driver
+            WebElement addDriverButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=\"flex w-full justify-end \"]/ descendant::div[3]")));
+            addDriverButton.click();
+            System.out.println(" 2. Clicked on Add Driver.");
+            
+            // Step 4: Enter Mobile Number
+            WebElement mobileNumberField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder=\"Enter Driver Mobile Number\"]")));
+            mobileNumberField.click();
+            mobileNumberField.sendKeys("9876243210");
+            System.out.println(" 3. Entered Mobile Number.");
+            
+            // Step 5: Click on Send OTP
+            WebElement sendOtpButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()=\"Send OTP\"]")));
+            sendOtpButton.click();
+            System.out.println(" 4. Clicked on Send OTP.");
+            Thread.sleep(2000);
+            
+            //Step 6: Enter OTP
+            int[] otp = {7,8,9,1};
+            for (int i = 0; i <= 3; i++) {
+                WebElement otpField = driver.findElement(By.xpath("//div[@class='flex justify-center px-10']/descendant::input[" + (i + 1) + "]"));
+                otpField.click();
+                otpField.sendKeys(String.valueOf(otp[i]));
+                }
+            System.out.println(" 5. Entered OTP.");
+            
+            // Step 7: Click on Add Driver
+            WebElement addDriverConfirmButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=\"flex justify-center flex-row gap-8 mt-6\"]/div")));
+            addDriverConfirmButton.click();
+            System.out.println(" 6. Clicked on Add Driver.");
+            Thread.sleep(1000);
+            
+            //Click on search field
+            WebElement searchfiled = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder=\"Search Contact No.\"]")));
+            searchfiled.click();
+            searchfiled.sendKeys("9876243210");
+            System.out.println(" 8. Entered Mobile Number in search field");
+            Thread.sleep(1000);
+            
+            //Click on result of search
+            WebElement search_fleetresult = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()=\"9876243210\"]")));
+            search_fleetresult.click();
+            System.out.println(" 9. clicked on result for search field");
+            
+            // To delete the added number
+            WebElement delete_fleetdr = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"flex flex-row justify-between  px-4  cursor-pointer rounded-md ml-6\"]")));
+            delete_fleetdr.click();
+            System.out.println(" 10. Clicked on delete button");
+            
+            // To confirm delete
+            WebElement confirm_fleetdelete = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"flex flex-row justify-end m-4 gap-2\"]/div[text()=\"Delete\"]")));
+            confirm_fleetdelete.click();
+            System.out.println(" 11. Contact deleted");
+            Thread.sleep(2000);
+        }
+        catch (Exception e)
+        {
+        	System.out.println("Driver already associated with fleet");
+        }
+    }
+    
+
+}
     
 
     

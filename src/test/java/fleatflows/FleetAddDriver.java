@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import baseClass.BaseClass;
+<<<<<<< Updated upstream
 
 public class FleetAddDriver extends BaseClass {
 
@@ -18,7 +19,6 @@ public class FleetAddDriver extends BaseClass {
         System.out.println("Initiating login process...");
         FleetLogin obj = new FleetLogin();
     	obj.FleetLoginFlow();
-
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
@@ -78,5 +78,21 @@ public class FleetAddDriver extends BaseClass {
         } catch (Exception e) {
             System.out.println("Error automating dashboard: " + e.getMessage());
         }
+=======
+import utils.FleetHelper;
+public class FleetAddDriver extends BaseClass {
+    @Test
+    public void automateAddDriver() throws IOException {
+      try {
+    	FleetHelper fleetHelper = new FleetHelper(); 
+    	 fleetHelper.fleetLogin(); 
+      	 fleetHelper.AddDriverinFleet();         	
+    } catch (Exception e) {
+        System.out.println("An error occurred during the Edit Vehicle Details flow: " + e.getMessage());
+        e.printStackTrace();
+    }
+
+>>>>>>> Stashed changes
     }
 }
+
